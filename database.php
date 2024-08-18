@@ -1,6 +1,4 @@
-CREATE DATABASE marinos_mercantes_exterios;
-
-\c marinos_mercantes_exterios;
+CREATE DATABASE marinos_mercantes_exterior;
 
 CREATE TABLE marinos (
     id SERIAL PRIMARY KEY,

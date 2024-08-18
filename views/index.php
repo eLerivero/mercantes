@@ -1,58 +1,86 @@
+<?php
+session_start(); // Asegúrate de que la sesión esté iniciada
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Censo de Marinos Mercantes Venezolanos en el Exterior</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Censo de Marinos Mercantes Venezolanos Que Laboran en el Exterior</h1>
         <p class="text-center">Fecha de Inicio: 12 de marzo de 2024</p>
         <p class="text-center">Fecha de Fin: 30 de junio de 2024</p>
-        <form action="/config/controller/controller.php" method="POST">
+        <form action="../config/controller/controller.php" method="POST">
             <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico*</label>
+                <label for="email" class="form-label">Correo electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombres y Apellidos*</label>
+                <label for="nombre" class="form-label">Nombres y Apellidos</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="mb-3">
-                <label for="tipo_cedula" class="form-label">Tipo de Cédula*</label>
-                <input type="text" class="form-control" id="tipo_cedula" name="tipo_cedula" required>
-            </div>
-            <div class="mb-3">
-                <label for="sexo" class="form-label">Sexo*</label>
-                <select class="form-select" id="sexo" name="sexo" required>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
+                <label for="tipo_cedula" class="form-label">Tipo de Cédula</label>
+                <select class="form-control" id="tipo_cedula" name="tipo_cedula" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="V">V</option>
+                    <option value="E">E</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="cedula" class="form-label">Cédula de Identidad*</label>
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo" name="sexo" required>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="cedula" class="form-label">Cédula de Identidad</label>
                 <input type="text" class="form-control" id="cedula" name="cedula" required>
             </div>
             <div class="mb-3">
-                <label for="telefono" class="form-label">Número Telefónico*</label>
+                <label for="telefono" class="form-label">Número Telefónico</label>
                 <input type="tel" class="form-control" id="telefono" name="telefono" required>
             </div>
             <div class="mb-3">
-                <label for="titulo" class="form-label">Título o Cargo*</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" required>
+                <label for="titulo" class="form-label">Título o Cargo</label>
+                <select class="form-select" id="titulo" name="titulo" required>
+                    <option value="" disabled selected>Elige un cargo</option>
+                    <option value="Capitán de Altura">Capitán de Altura</option>
+                    <option value="Primer Oficial de Navegación">Primer Oficial de Navegación</option>
+                    <option value="Segundo Oficial de Navegación">Segundo Oficial de Navegación</option>
+                    <option value="Tercer Oficial de Navegación">Tercer Oficial de Navegación</option>
+                    <option value="Jefe de Máquinas">Jefe de Máquinas</option>
+                    <option value="Primer Oficial de Máquinas">Primer Oficial de Máquinas</option>
+                    <option value="Segundo Oficial de Máquinas">Segundo Oficial de Máquinas</option>
+                    <option value="Tercer Oficial de Máquinas">Tercer Oficial de Máquinas</option>
+                    <option value="Capitán de Pesca">Capitán de Pesca</option>
+                    <option value="Oficial de Pesca">Oficial de Pesca</option>
+                    <option value="Jefe de Máquinas de Pesca">Jefe de Máquinas de Pesca</option>
+                    <option value="Oficial de Máquinas de Pesca">Oficial de Máquinas de Pesca</option>
+                    <option value="Capitán Costanero">Capitán Costanero</option>
+                    <option value="Patón de Primera">Patón de Primera</option>
+                    <option value="Patón de Segunda">Patón de Segunda</option>
+                    <option value="Motorista de Primera">Motorista de Primera</option>
+                    <option value="Motorista de Segunda">Motorista de Segunda</option>
+                    <option value="Personal de Apoyo">Personal de Apoyo</option>
+                </select>
             </div>
             <div class="mb-3">
-                <label for="empresa" class="form-label">Nombre de la Empresa o Agencia Naviera*</label>
+                <label for="empresa" class="form-label">Nombre de la Empresa o Agencia Naviera</label>
                 <input type="text" class="form-control" id="empresa" name="empresa" required>
             </div>
             <div class="mb-3">
-                <label for="pais" class="form-label">País dónde labora*</label>
-                <select id="pais" name="pais" class="form-control" required>
-                    <option value="">Seleccione un país</option>
-                    <option value="Afganistán">Afganistán</option>
+                <label for="pais" class="form-label">País dónde labora</label>
+                <select id="pais" name="pais" class="form-select" required>
+                <option value="Afganistán">Afganistán</option>
                     <option value="Albania">Albania</option>
                     <option value="Alemania">Alemania</option>
                     <option value="Andorra">Andorra</option>
@@ -302,9 +330,23 @@
                     <option value="Zimbabue">Zimbabue</option>
                 </select>
             </div>
-            
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+        <script>
+            <?php
+            if (isset($_SESSION['message'])) {
+                $message = $_SESSION['message'];
+                echo "Swal.fire({
+                    title: '" . ($message['type'] == 'success' ? 'Éxito!' : 'Error!') . "',
+                    text: '" . $message['text'] . "',
+                    icon: '" . $message['type'] . "',
+                    confirmButtonText: 'Aceptar'
+                });";
+                unset($_SESSION['message']);
+            }
+            ?>
+        </script>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
