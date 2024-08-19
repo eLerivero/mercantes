@@ -13,13 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo_cedula = $_POST['tipo_cedula'];
     $sexo = $_POST['sexo'];
     $cedula = $_POST['cedula'];
+    $pais_code = $_POST['pais_code'];
     $telefono = $_POST['telefono'];
     $titulo = $_POST['titulo'];
     $empresa = $_POST['empresa'];
     $pais = $_POST['pais'];
 
     $formMarino = new FormMarino();
-    $result = $formMarino->guardarDatos($email, $nombre, $tipo_cedula, $sexo, $cedula, $telefono, $titulo, $empresa, $pais);
+    $result = $formMarino->guardarDatos($email, $nombre, $tipo_cedula, $sexo, $cedula, $pais_code, $telefono, $titulo, $empresa, $pais);
 
     if ($result == true) {
         $_SESSION['message'] = [

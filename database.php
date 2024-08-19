@@ -7,6 +7,7 @@ CREATE TABLE marinos (
     tipo_cedula VARCHAR(100) NOT NULL,
     sexo VARCHAR(10) NOT NULL,
     cedula VARCHAR(20) NOT NULL,
+    pais_code VARCHAR(15) NOT NULL,
     telefono VARCHAR(15) NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     empresa VARCHAR(255) NOT NULL,
