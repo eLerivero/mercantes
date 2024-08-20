@@ -10,8 +10,8 @@ error_reporting(E_ALL);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $nombre = $_POST['nombre'];
-    $tipo_cedula = $_POST['tipo_cedula'];
-    $sexo = $_POST['sexo'];
+   /*  $tipo_cedula = $_POST['tipo_cedula'];
+    $sexo = $_POST['sexo']; */
     $cedula = $_POST['cedula'];
     $pais_code = $_POST['pais_code'];
     $telefono = $_POST['telefono'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pais = $_POST['pais'];
 
     $formMarino = new FormMarino();
-    $result = $formMarino->guardarDatos($email, $nombre, $tipo_cedula, $sexo, $cedula, $pais_code, $telefono, $titulo, $empresa, $pais);
+    $result = $formMarino->guardarDatos($email, $nombre, $cedula, $pais_code, $telefono, $titulo, $empresa, $pais);
 
     if ($result == true) {
         $_SESSION['message'] = [

@@ -26,7 +26,7 @@ session_start(); // Asegúrate de que la sesión esté iniciada
                 <label for="nombre" class="form-label">Nombres y Apellidos</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
-            <div class="mb-3">
+           <!--  <div class="mb-3">
                 <label for="tipo_cedula" class="form-label">Tipo de Cédula</label>
                 <select class="form-control" id="tipo_cedula" name="tipo_cedula" required>
                     <option value="" disabled selected>Seleccione</option>
@@ -40,7 +40,7 @@ session_start(); // Asegúrate de que la sesión esté iniciada
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
                 </select>
-            </div>
+            </div> -->
             <div class="mb-3">
                 <label for="cedula" class="form-label">Cédula de Identidad</label>
                 <input type="number" class="form-control" id="cedula" name="cedula" required>
